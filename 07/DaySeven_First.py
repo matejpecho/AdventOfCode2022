@@ -1,0 +1,1 @@
+myinput_file = open('./07/myinput.txt', 'r').read().splitlines()
