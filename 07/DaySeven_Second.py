@@ -49,12 +49,23 @@ print('\nResult:')
 #print(path)
 for a in path:
     whole_path.append(a)
-print(whole_path)
+#print(whole_path)
 
 size = 0
+used_space = 0
 
 for b in whole_path:
+    if(b[0] == '/'):
+        used_space = b[1]
     if(b[1] < 100000):
         size += b[1]
-print(size)
-    #print(terminal_output
+#   print(size)
+to_free_up = 30000000 - (70000000 - used_space)
+
+smallest_to_remove = []
+
+for c in whole_path:
+    if(c[1] >= to_free_up):
+        smallest_to_remove.append(c[1])
+print(min(smallest_to_remove))
+    #print(terminal_output)
