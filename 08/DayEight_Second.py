@@ -11,34 +11,31 @@ down = True
 for line in mypuzzle:
     grid.append(list(map(int,line)))
 
-'''
-Future update: two function for row and columns
-def visibleDirection(start, end, r, c):
-    visible = True
-    for item in range(start, end):
-        if(grid[r][item] >= grid[r][c]):
-            visible = False
-            break
-        visible = True
-    return visible'''
+
 left_score = 0
+right_score = 0
+up_score = 0
+down_score = 0
+
 for r in range(len(grid)):
     for c in range(len(grid[r])):
         print(grid[r][c])
         for item in range(c-1, -1, -1):
             left_score += 1
             if(grid[r][item] >= grid[r][c]):
-                print(left_score)
+                
                 left = False
                 break
             left = True
             
         for item in range(c + 1, len(grid[r])):
+            right_score += 1
             if(grid[r][item] >= grid[r][c]):
                 right = False
                 break
             right = True
-            
+        print(right_score)
+
         for item in range(0, r):
             if(grid[item][c] >= grid[r][c]):
                 up = False
@@ -59,5 +56,8 @@ for r in range(len(grid)):
         up = True
         down = True
         left_score = 0
+        right_score = 0
+        up_score = 0
+        down_score = 0
  
 print(count)
